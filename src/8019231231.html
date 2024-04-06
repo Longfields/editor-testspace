@@ -1,0 +1,1624 @@
+<!DOCTYPE html>
+<html>
+<script>
+/**
+    Welcome to my website!
+    by LeaferStudios
+    
+    => Go to the Tipts & Thanks and post a dot (.) in the Subscribe Thread (pinned) to get notified when I release a cool program or have an announcement to make.
+
+    => If you are have any questions about how to subscribe, please tell me in the Questions section below. I will try to get back to you as soon as possible!
+
+    The screen width checker has been removed, so now you don't have to click it to see my website anymore!
+
+    Enjoy the new design update!
+    Check out the Blog, it has some really cool video technology which I just developed. This is just the beginning of it.
+    
+    => You can visit my previous two old subpages through this program's spin-offs.
+
+    Last updated: April 5, 2024
+    
+    Thu. Dec. 21, 2023: Wow, I've never thought I would hit 164 votes on my subpage!!!
+
+    //{
+    This is the code log I made when I programmed this for Provember 2023.
+
+    Hit 1000 lines on 6:45 PM November 10, 2023!
+    Hit 1240 lines on 4:26 PM November 11, 2023!
+    Hit 1629 lines on 7:30 PM November 12, 2023!
+    Hit 1632 lines on 9:55 PM November 13, 2023! Optimized certain functions.
+    //}
+
+    © 2023 by LeaferStudios
+**/
+</script>
+
+<!-- Head -->
+<head>
+    <!--<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LeaferStudios</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600&family=Open+Sans:wght@400;500&family=Roboto+Mono:wght@400;500&family=Passion+One:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.css" rel="stylesheet" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.js"></script>
+    
+    <!-- Stylesheet -->
+    <style>
+        * {}
+        
+        /* Variables */
+        html,
+        body {
+            font-family: "Open Sans", arial;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+            --bg-color: #1C1C16;
+
+            --mn-bg-color: #272E23;
+            --mn-bg-color-a: #2D2D1E;
+            --mn-txt-color: #C4C8BB;
+            --mn-icon-bg-color: #39392A;
+            --mn-active-bg-color: #3E4A36;
+            --mn-active-content-color: #D9E7A5;
+            --mn-active-bg-color-hover: #495441;
+            --mn-active-bg-color-focus: #393929;
+            --mn-link-bg-hover: #393929;
+            --mn-link-bg-hover-color: #E3E3DC;
+            --mn-link-a-active-color: rgb(0, 0, 0, 0.1);
+            --mn-active-icon-bg: #485440;
+            --nv-txt-color: #E5E2D9;
+
+            --footer-line-color: #3A3A2F;
+
+            --ft-link-color: #CBCC58;
+            --ft-link-color-hover: #e8e971;
+
+            --gradient-image-bg-one: rgba(102, 10, 16, 0.75);
+            --gradient-image-bg-two: rgba(5, 52, 122, 0.75);
+            --ac-link-color: rgb(164, 203, 245);
+            background-color: var(--bg-color);
+            color: var(--nv-txt-color);
+        }
+
+        .lightmode {
+            --bg-color: #FFFCF3;
+            --mn-bg-color: #F0EDDD;
+            --mn-bg-color-a: #F0EDDD;
+            --mn-txt-color: #48473a;
+            --mn-icon-bg-color: #E3E0D1;
+            --mn-active-bg-color: #E6E4BF;
+            --mn-active-content-color: #1C1D06;
+            --mn-active-bg-color-hover: #DAD8B5;
+            --mn-active-bg-color-focus: #D7D5B2;
+            --mn-link-bg-hover: #E2E0D0;
+            --mn-link-bg-hover-color: #1C1D06;
+            --mn-link-a-active-color: #E3E0D0;
+            --mn-active-icon-bg: #DAD8B5;
+            /* [#E6E4C0] */
+            --nv-txt-color: #1F1F1F;
+
+            --footer-line-color: #EFECDD;
+            --ft-link-color: #616200;
+            --ft-link-color-hover: #1D1D00;
+
+            --gradient-image-bg-one: rgba(255, 148, 157, 0.75);
+            --gradient-image-bg-two: rgba(97, 163, 255, 0.75);
+            --ac-link-color: rgb(8, 56, 107);
+        }
+
+        h1 {
+            font-family: "Roboto", arial;
+        }
+
+        i {
+            vertical-align: middle;
+        }
+
+        .scene {
+            background-color: var(--bg-color);
+            color: var(--nv-txt-color);
+        }
+
+        #main-navbar {
+            background-color: var(--mn-bg-color-a);
+            color: #FFF;
+            box-shadow: none;
+            position: fixed;
+            left: 0;
+            right: 0;
+            height: 64px;
+            z-index: 998;
+        }
+
+        #menu {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: -450px;
+            background-color: var(--mn-bg-color-a);
+            width: 250px;
+            height: 100%;
+            transition: all 0.45s;
+            box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.14);
+            z-index: 1001;
+            border-radius: 0 16px 16px 0;
+
+        }
+
+        #menu a {
+            display: block;
+            padding: 0px 16px;
+            height: 57px;
+            line-height: 57px;
+            background-color: transparent;
+            transition: all 0.05s;
+            font-size: 15px;
+            text-decoration: none;
+            color: var(--mn-txt-color);
+            font-weight: 500;
+            font-family: "Roboto Text", arial;
+        }
+
+        #menu a.active {
+            background-color: var(--mn-active-bg-color);
+            color: var(--mn-active-content-color);
+        }
+
+        #menu a.active:hover {
+            background-color: var(--mn-active-bg-color-hover);
+
+        }
+
+        #menu a.active:focus {
+            background-color: var(--mn-active-bg-color-focus);
+        }
+
+        #menu a:hover {
+            background-color: var(--mn-link-bg-hover);
+            color: var(--mn-link-bg-hover-color);
+        }
+
+        #menu a:active {
+            background-color: var(--mn-link-a-active-color);
+        }
+
+
+        #menu a.active i.material-symbols-outlined {
+            background: var(--mn-active-icon-bg);
+        }
+
+        #menu a i.material-symbols-outlined {
+            background: var(--mn-icon-bg-color);
+            padding: 4px 10px;
+            border-radius: 15px;
+            vertical-align: middle;
+            font-size: 22px;
+            margin-right: 10px;
+            transition: all 0.12s;
+        }
+
+        #menu a:active i.material-symbols-outlined {
+            vertical-align: middle;
+            font-size: 20px;
+            margin-right: 12px;
+            margin-top: 0px;
+        }
+
+        #menu a:hover i.material-symbols-outlined {
+            vertical-align: middle;
+            font-size: 24px;
+            margin-right: 8px;
+            margin-top: 0px;
+            transform: translateX(-1px);
+        }
+
+        #menu a:active i.material-symbols-outlined {
+            vertical-align: middle;
+            font-size: 20px;
+            margin-right: 12px;
+            margin-top: 0px;
+            transform: translateX(2px);
+        }
+
+        #menu.on {
+            left: 0px;
+        }
+
+        #menu #pts {
+            display: flex;
+            width: 250px;
+            border-top: 1px solid var(--mn-txt-color);
+            opacity: 0.5;
+            position: fixed;
+            bottom: 0;
+        }
+
+        #menu #pts a {
+            line-height: 18px;
+            font-size: 14px;
+            padding: 10px 20px;
+            text-align: center;
+            font-weight: 400;
+            cursor: pointer;
+        }
+
+        #menu #pts a:focus {
+            background-color: rgb(232, 232, 232);
+        }
+
+        #menu #mtp {
+            background: rgb(214, 255, 209, 0.1);
+            border-radius: 0 16px 0 0px;
+            height: 75px;
+            padding-left: 26px;
+        }
+
+        #menu #mtp h2 {
+            color: var(--mn-txt-color);
+            font-size: 20px;
+            margin: 0;
+            line-height: 75px;
+            letter-spacing: .2px;
+            font-weight: 400;
+            font-family: "Roboto", arial;
+            position: absolute;
+            left: 70px;
+        }
+
+        #menu #mtp img {
+            width: 37px;
+            border-radius: 50%;
+            top: 20px;
+            left: 22px;
+            position: absolute;
+        }
+
+        header {
+            background-color: rgb(245, 245, 245);
+            height: 65px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        header h1 {
+            margin: 0;
+            line-height: 65px;
+            font-weight: 500;
+            font-size: 25px;
+            letter-spacing: 2px;
+            padding-left: 16px;
+            color: rgb(52, 98, 150);
+        }
+
+        header a#dt {
+            line-height: 65px;
+            width: 100px;
+        }
+
+        header a#at {
+            line-height: 65px;
+        }
+
+        hr {
+            background-color: var(--mn-txt-color);
+            height: 1px;
+            margin: 0;
+            padding: 0;
+            border: none;
+        }
+
+        #scrim {
+            background-color: rgba(0, 0, 0);
+            opacity: 0.4;
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: none;
+            transition: all 0.1s;
+        }
+
+        #scrim.on {
+            display: block;
+        }
+
+        .navbar-toggler {
+            border-radius: 100%;
+            height: 50px;
+            width: 50px;
+            color: var(--nv-txt-color);
+            margin-left: 12px;
+            margin-right: 12px;
+        }
+
+        .material-symbols-outlined {
+            vertical-align: middle;
+
+        }
+
+        a.navbar-brand {
+            color: var(--nv-txt-color) !important;
+        }
+
+        .nav-block {
+            height: 64px;
+        }
+
+        #footer {
+            background-color: var(--bg-color);
+            color: var(--nv-txt-color);
+
+        }
+
+        .ft-link {
+            font-size: 16px;
+            color: var(--ft-link-color);
+            font-weight: 500;
+            font-family: "Roboto", arial;
+
+        }
+
+        .ft-link i {
+            margin-right: 2px;
+        }
+
+        .ft-link:hover {
+            color: var(--ft-link-color-hover);
+            text-decoration: underline;
+        }
+
+        .jumbo-btn {
+            letter-spacing: 0.25px;
+            font-family: "Roboto", arial;
+            font-size: 15px;
+            font-weight: 500;
+            background-color: #386A20;
+            color: #FFF;
+        }
+
+        .jumbo-btn:hover {
+            background-color: rgb(66, 122, 38);
+            color: #FFF;
+        }
+
+        .jumbo-btn:active {
+            background-color: rgb(76, 138, 44) !important;
+        }
+
+        @keyframes sceneAnimation {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        #logo {
+            background-color: rgb(255, 255, 255);
+            width: 100%;
+            height: 100%;
+            z-index: 1000;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+
+        #logo h1 {
+            font-family: "Roboto", arial;
+            text-shadow: 2px 3px 2px rgba(0, 32, 97, 0.3);
+            font-size: 120px;
+            letter-spacing: 3px;
+            position: relative;
+            top: 25vw;
+            animation: logoAnim 4s forwards;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        @keyframes logoAnim {
+            0% {
+                opacity: 0;
+                transform: scale(0, 0)skew(90deg, -20deg);
+            }
+
+            40% {
+                opacity: 1;
+                transform: scale(1, 1)skew(0deg, 0deg);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1, 1)skew(0deg, 0deg);
+            }
+
+            60% {
+                opacity: 1;
+                transform: scale(1, 1)skew(0deg, 0deg);
+            }
+
+            100% {
+                opacity: 0;
+                transform: scale(0, 0)skew(90deg, 20deg);
+            }
+        }
+
+        .article-at {
+            padding: 15px 40px;
+        }
+
+
+        .para h1 {
+            font-size: 65px;
+            font-family: "Roboto", arial;
+            font-weight: 300;
+        }
+
+        .accordion-body {
+            color: var(--nv-txt-color);
+        }
+
+        .accordion-button {
+            color: var(--ac-link-color);
+        }
+
+        #programs {
+
+            width: 100%;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-around;
+
+        }
+
+        .program {
+            width: 200px;
+            background: var(--mn-active-bg-color);
+            height: 270px;
+            margin: 20px 0px;
+            cursor: pointer;
+            transition: all 0.5s;
+            border-radius: 30px 30px 10px 10px;
+        }
+
+        .program:hover {
+            transform: scale(1.025);
+            border-radius: 30px 30px 20px 20px;
+        }
+
+        .program:hover img {
+            border-radius: 20px 20px 0 0;
+        }
+
+        .program img {
+            border-radius: 10px 10px 0 0;
+            width: 200px;
+            height: 200px;
+            cursor: pointer;
+        }
+
+        .program a {
+            padding: 15px;
+        }
+
+        .program span {
+            padding: 15px;
+            width: 200px;
+            font-size: 17px;
+            line-height: 36px;
+        }
+
+        .program span i.material-symbols-outlined {
+            vertical-align: middle;
+        }
+    </style>
+</head>
+
+<!-- Body -->
+<body>
+    <div id="scrim" onclick="toggle_el('menu','on');"></div>
+
+    <div class="scene" id="logo">
+        <h1>
+            <b style="color:rgb(0, 120, 26);margin-right:2px">Leafer<br></b><b style="color:rgb(0, 120, 26);margin-left:5px">Studios</b>
+        </h1>
+    </div>
+
+    <!--<header class="ns">
+		<h1>KAGC</h1>
+		<a id="dt" class="nv"><span id="time">0:00 AM</span></a>
+	</header>-->
+
+    <nav class="navbar navbar-dark fixed-top" id="main-navbar">
+        <button data-mdb-ripple-color="rgb(117, 117, 117)" data-mdb-ripple-duration="500ms" data-mdb-ripple-centered="true" onclick="toggle_el('menu','on');" class="ripple navbar-toggler" type="button">
+            <span class="material-symbols-outlined">menu</span>
+        </button>
+
+        <a class="navbar-brand me-2" href="#">
+            <img src="https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/avatars/leafers-ultimate.png" height="40" alt="LeaferStudios Logo" style="margin-right:5px;" />
+            LeaferStudios
+        </a>
+
+        <button data-mdb-ripple-color="rgb(117, 117, 117)" data-mdb-ripple-duration="500ms" data-mdb-ripple-centered="true" onclick="lightMode();" class="ripple navbar-toggler" type="button">
+            <span class="material-symbols-outlined" id="theme-icon">light_mode</span>
+        </button>
+    </nav>
+
+    <!-- Navbar -->
+    <div id="menu">
+        <div id="mtp">
+            <img src="https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/avatars/leafers-ultimate.png">
+            <h2>LeaferStudios</h2>
+        </div>
+        <hr />
+        <a data-mdb-ripple-color="rgb(105, 105, 105)" data-mdb-ripple-duration="500ms" data-mdb-ripple-centered="true" class="nvlink active ripple" href="javascript:toggle_el('menu','on');"><i class="material-symbols-outlined">close</i><span>Close</span></a>
+        <a data-mdb-ripple-color="rgb(105, 105, 105)" data-mdb-ripple-duration="300ms" data-mdb-ripple-centered="true" class="nvlink ripple" href="javascript:changePage(1);toggle_el('menu','on');"><i class="material-symbols-outlined">spa</i><span>Home</span></a>
+        <a data-mdb-ripple-color="rgb(105, 105, 105)" data-mdb-ripple-duration="300ms" data-mdb-ripple-centered="true" class="nvlink ripple" href="javascript:changePage(2);toggle_el('menu','on');"><i class="material-symbols-outlined">account_circle</i><span>About</span></a>
+        <a data-mdb-ripple-color="rgb(105, 105, 105)" data-mdb-ripple-duration="500ms" data-mdb-ripple-centered="true" class="nvlink ripple" href="javascript:changePage(3);toggle_el('menu','on');"><i class="material-symbols-outlined">mark_email_unread</i><span>Subscribe</span></a>
+        <a data-mdb-ripple-color="rgb(105, 105, 105)" data-mdb-ripple-duration="500ms" data-mdb-ripple-centered="true" class="nvlink ripple" href="javascript:changePage(4);toggle_el('menu','on');"><i class="material-symbols-outlined">code</i><span>Programs</span></a>
+
+        <a data-mdb-ripple-color="rgb(105, 105, 105)" data-mdb-ripple-duration="500ms" data-mdb-ripple-centered="true" class="nvlink ripple" href="javascript:changePage(5);toggle_el('menu','on');"><i class="material-symbols-outlined">pages</i><span>Blog</span></a>
+
+        <!--<div id="pts">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of service</a>
+        </div>-->
+    </div>
+    <!-- Scene 1 -->
+    <div class="scene">
+
+
+        <div class="nav-block"></div>
+
+        <div class="bg-image" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/b/bf/Lano_Beach_-_Savai%27i%2C_2007.jpg');background-position:left;background-attachment:fixed;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/bf/Lano_Beach_-_Savai%27i%2C_2007.jpg" class="w-100" style="opacity:0;" />
+            <div class="mask" style="
+      background: linear-gradient(
+        36deg,
+        rgba(183, 245, 166, 0.75),
+        rgba(255, 255, 255, 0.75)
+      );
+    ">
+                <div class="d-flex align-items-center h-100">
+                    <div class="text-black" style='padding-left:90px;'>
+                        <h1 class="mb-3" style="font-family:'Roboto';font-size:40px;font-weight:400;">Hi, I'm LeaferStudios!</h1>
+                        <h5 style="font-family:'Roboto';font-size:22px;font-weight:300;margin-bottom:35px;">Welcome to my Official KA Website</h5>
+
+                        <button data-mdb-ripple-color="rgb(222, 222, 222)" data-mdb-ripple-duration="450ms" data-mdb-ripple-centered="false" class="btn jumbo-btn btn-rounded text-white" style="margin-right:10px;" onclick="changePage(3);">
+
+                            Subscribe <i class="material-symbols-outlined">arrow_forward</i>
+                        </button>
+
+                        <button data-mdb-ripple-color="rgb(222, 222, 222)" data-mdb-ripple-duration="300ms" data-mdb-ripple-centered="false" class="btn jumbo-btn  btn-rounded text-white" onclick="changePage(2);">
+
+                            About <i class="material-symbols-outlined">person</i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container pt-4 pb-4">
+            <br />
+            <h1>Who am I?</h1>
+            <br>
+            <p>I'm a computer programmer who likes to create programs on Khan Academy on a wide variety of topics including web development, game development, tutorials, ciphers, and more. I've programmed over 500 programs on Khan Academy! </p>
+
+            <button data-mdb-ripple-color="rgb(222, 222, 222)" data-mdb-ripple-duration="300ms" data-mdb-ripple-centered="false" class="btn jumbo-btn  btn-rounded text-white" onclick="changePage(4);">
+
+                Programs <i class="material-symbols-outlined">code</i>
+            </button>
+            <br><br>
+        </div>
+
+        <div id="carouselExampleCaptions" class="carousel slide" data-mdb-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-mdb-target="#carouselExampleCaptions" data-mdb-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-mdb-target="#carouselExampleCaptions" data-mdb-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-mdb-target="#carouselExampleCaptions" data-mdb-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/NGC_253_Galaxy.jpg/1024px-NGC_253_Galaxy.jpg" class="d-block w-100" alt="Wild Landscape" height="400" />
+                    <div class="carousel-caption d-md-block">
+                        <h5>Welcome to my website!</h5>
+                        <p>I'm a programmer on Khan Academy who is good at making websites, games, graphics, tutorials and
+                            mostly everything else.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/00/Thomas_Moran_Childe_Roland_to_the_Dark_Tower_Came_1859.jpg" class="d-block w-100" alt="Camera" height="400" />
+                    <div class="carousel-caption  d-md-block">
+                        <h5>Updated regularly</h5>
+                        <p>I am committed to regularly updating this website.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/NGC_3810_%28captured_by_the_Hubble_Space_Telescope%29.jpg" class="d-block w-100" alt="Exotic Fruits" height="400" />
+                    <div class="carousel-caption  d-md-block">
+                        <h5>Brand-new Blog</h5>
+                        <p>Check out my stunning latest invention in the <a href="javascript:changePage(5);" style='color:rgb(219, 219, 3);'>Blog</a> section of this website.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-mdb-target="#carouselExampleCaptions" data-mdb-slide="prev">
+                <i class="material-symbols-outlined">arrow_back</i>
+            </button>
+            <button class="carousel-control-next" type="button" data-mdb-target="#carouselExampleCaptions" data-mdb-slide="next">
+                <i class="material-symbols-outlined">arrow_forward</i>
+            </button>
+        </div>
+
+        <!-- Tabs navs -->
+        <ul class="nav nav-tabs mb-3 nav-justified" id="ex-with-icons" role="tablist" style="width:100% !important;">
+            <li class="nav-item" role="presentation">
+                <a class="nav-link active" id="ex-with-icons-tab-1" data-mdb-toggle="tab" href="#ex-with-icons-tabs-1" role="tab" aria-controls="ex-with-icons-tabs-1" aria-selected="true" style="font-family:'Roboto',serif !important;font-weight: 600 !important;
+  "><i class="material-symbols-outlined" style="margin-right:5px;">person</i>Who</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="ex-with-icons-tab-2" data-mdb-toggle="tab" href="#ex-with-icons-tabs-2" role="tab" aria-controls="ex-with-icons-tabs-2" aria-selected="false" style="font-family:'Roboto',serif !important;font-weight: 600 !important;
+  "><i class="material-symbols-outlined" style="margin-right:5px;">info</i> What</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="ex-with-icons-tab-3" data-mdb-toggle="tab" href="#ex-with-icons-tabs-3" role="tab" aria-controls="ex-with-icons-tabs-3" aria-selected="false" style="font-family:'Roboto',serif !important;font-weight: 600 !important;
+  "><i class="material-symbols-outlined" style="margin-right:5px;">globe</i> Where</a>
+            </li>
+        </ul>
+        <!-- Tabs navs -->
+
+        <!-- Tabs content -->
+        <div class="tab-content" id="ex-with-icons-content">
+            <div class="tab-pane fade show active" id="ex-with-icons-tabs-1" role="tabpanel" aria-labelledby="ex-with-icons-tab-1">
+                <div class="container pt-3 pb-3">
+                    <p>I'm a human. Also, I'm a computer programmer on Khan Academy.</p>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="ex-with-icons-tabs-2" role="tabpanel" aria-labelledby="ex-with-icons-tab-2">
+                <div class="container pt-3 pb-3">
+                    <p>This is my official KA website, my Subscribe page. I will update some parts of this page soon. Subscribe to get notified when!</p>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="ex-with-icons-tabs-3" role="tabpanel" aria-labelledby="ex-with-icons-tab-3">
+                <div class="container pt-3 pb-3">
+                    <p>The Earth is the planet you live in, and I live here as well.</p>
+                </div>
+            </div>
+        </div>
+        <!-- Tabs content -->
+    </div>
+    <!-- Scene 2 -->
+    <div class="scene">
+        <div class="nav-block"></div>
+        <div class="container pt-4 pb-4 para" style="overflow:hidden;">
+            <div class="bg-image" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/7/7a/1859-Martinique.web.jpg');background-position:left;background-attachment:fixed;height:150px;border-radius:10px;margin-bottom:50px;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/bf/Lano_Beach_-_Savai%27i%2C_2007.jpg" class="w-100" style="opacity:0;" />
+                <div class="mask" style="
+      background: linear-gradient(
+        43deg,
+        var(--gradient-image-bg-one),
+        var(--gradient-image-bg-two)
+      );
+    ">
+                    <h1 style="text-align:center;margin-top:35px;">About </h1>
+
+                </div>
+            </div>
+
+            <p>Welcome to my official Khan Academy website. You can subscribe to me here through the comments section below and get notified when I release something cool.</p>
+            <p>I love computer programming! Since 2020, I have released hundreds of programs on Khan Academy. I am proficient in HTML, CSS, JavaScript, Vue.js, Angular, React, Python, Ruby, Ruby on Rails, Processing.js, jQuery, and about many front-end CSS libraries like Vuetify and Angular Material. My current goal is to become proficient in back-end software development with languages like PHP and Java. I currently build projects on GitHub and have my own Netlify website.</p>
+
+            <p>If you have any questions, tips & thanks, suggestions, or any other feedback please post it in the comment sections below. I'm also open to program requests, if you want me to create something which you have in mind.</p>
+
+            <img src="https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/avatars/avatar-team.png" style="margin-top:10px;">
+            <br /><br />
+        </div>
+    </div>
+    <!-- Scene 3 -->
+    <div class="scene">
+        <div class="nav-block"></div>
+
+        <div class="container pt-4 pb-4 para" style="overflow:hidden;">
+            <div class="bg-image" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/4/4b/2013-08-07_04-23-26-foudre-belfort.jpg');background-position:left;background-size:120%;background-attachment:fixed;height:150px;border-radius:10px;margin-bottom:50px;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/bf/Lano_Beach_-_Savai%27i%2C_2007.jpg" class="w-100" style="opacity:0;" />
+                <div class="mask" style="
+      background: linear-gradient(
+        43deg,
+        var(--gradient-image-bg-one),
+        var(--gradient-image-bg-two)
+      );
+    ">
+                    <h1 style="text-align:center;margin-top:35px;">Subscribe</h1>
+
+                </div>
+            </div>
+
+            <h2>How to Subscribe</h2>
+            <br>
+            <p>Go <a href="https://www.khanacademy.org/computer-programming/leaferstudios/4934504502870016?qa_expand_key=ag5zfmtoYW4tYWNhZGVteXJACxIIVXNlckRhdGEiHWthaWRfNTUzNjU2NDc5MjU4ODc5NjIyMzM5Mjc2DAsSCEZlZWRiYWNrGICApZCSlsgJDA" target="_blank" class="ft-link">here</a> and post a dot (.) in the thread to get notified when I release a cool program or have an announcement to make.</p>
+            <p>If you are have any questions about how to subscribe, please tell me in the Questions section below. I will try to get back to you as soon as possible!</p>
+            <br>
+
+            <h2>Top 3 Reasons to Subscribe</h2>
+            <br>
+            <hr>
+
+            <br>
+            <div class="accordion accordion-borderless" id="afx">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="fh1x">
+                        <button class="accordion-button" type="button" data-mdb-toggle="collapse" data-mdb-target="#flush-collapseOneX" aria-expanded="true" aria-controls="flush-collapseOneX">
+                            Get notified Whenever I Release a Cool Program
+                        </button>
+                    </h2>
+                    <div id="flush-collapseOneX" class="accordion-collapse collapse show" aria-labelledby="fh1x" data-mdb-parent="#afx">
+                        <div class="accordion-body">
+                            Every time a release something interesting, I will post the link in the <i>Subscribe Thread</i> below. </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="fh2x">
+                        <button class="accordion-button collapsed" type="button" data-mdb-toggle="collapse" data-mdb-target="#flush-collapseTwoX" aria-expanded="false" aria-controls="flush-collapseTwoX">
+                            Useful Learning Content & Tutorials
+                        </button>
+                    </h2>
+                    <div id="flush-collapseTwoX" class="accordion-collapse collapse" aria-labelledby="fh2x" data-mdb-parent="#afx">
+                        <div class="accordion-body">
+                            I make useful tutorials on a wide range of topics on computer programming, and also plan on releasing programs designed for learning content like math, science, geography and more.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="fh3x">
+                        <button class="accordion-button collapsed" type="button" data-mdb-toggle="collapse" data-mdb-target="#flush-collapseThreeX" aria-expanded="false" aria-controls="flush-collapseThreeX">
+                            Game Perks
+                        </button>
+
+                    </h2>
+
+                    <div id="flush-collapseThreeX" class="accordion-collapse collapse" aria-labelledby="fh3x" data-mdb-parent="#afx">
+                        <div class="accordion-body">
+                            I will also post special codes which allow you to get in-game money or powerups when I release some of my larger games later on. This will only happen when I finish programming my larger game projects, since right now there are no active game perks in any of my games.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+            <hr />
+            <br>
+            <p>Please keep in mind that subscribing is optional, and you can always un-subscribe later on if you want.</p>
+        </div>
+    </div>
+    <!-- Scene 4 -->
+    <div class="scene">
+        <div class="nav-block"></div>
+
+        <div class="container pt-4 pb-4 para" style="overflow:hidden;">
+            <div class="bg-image" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/4/4b/2013-08-07_04-23-26-foudre-belfort.jpg');background-position:left;background-size:120%;background-attachment:fixed;height:150px;border-radius:10px;margin-bottom:50px;">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/bf/Lano_Beach_-_Savai%27i%2C_2007.jpg" class="w-100" style="opacity:0;" />
+                <div class="mask" style="
+      background: linear-gradient(
+        43deg,
+        var(--gradient-image-bg-one),
+        var(--gradient-image-bg-two)
+      );
+    ">
+                    <h1 style="text-align:center;margin-top:35px;">Programs</h1>
+
+                </div>
+            </div>
+
+            <h2>What is this?</h2>
+            <br>
+            <p>This is the programs section, showcasing my top program creations on Khan Academy. You can click on a program to visit it.<br>Please note that many more programs will be added soon!</p>
+            <p>Do you have any top program suggestion? If you like one of my programs and think it is one of my best creations on Khan Academy, you can tell me in the Tips & Thanks below and I might add it here.</p>
+            <br>
+
+            <h2>Top Programs List</h2>
+            <br>
+            <hr>
+
+            <br>
+
+
+
+
+
+        </div>
+        <div id="programs"></div><br>
+        <hr />
+        <div class="container pt-4 pb-4">
+            <p>Looks like you've reached the end!<br>You can view all of my programs in my <a href="https://www.khanacademy.org/profile/kaid_553656479258879622339276/projects" target="_blank" class="ft-link">profile</a>.</p>
+        </div>
+    </div>
+    <!-- Scene 5 -->
+    <div class="scene">
+        <div class="nav-block"></div>
+
+        <div class="container pt-4 pb-4">
+            <h1>Welcome to the Blog</h1>
+            <p>This section will be updated soon, since there is no real content. The framework is complete, and I will soon add animated videos to it.<br>How it works: Turn your volume up and toggle the sound switch so it's on. You can go up and down using the arrow buttons on the right.</p>
+
+            <p>Be sure to share your feedback on the Blog in the T&T section below!</p>
+        </div>
+
+       
+
+        <div id="blog"></div>
+        <br><br>
+    </div>
+
+    <!-- Footer -->
+    <!-- Footer has additional Feedback element, activated by <a> -->
+    <footer id="footer">
+        <!-- SVG: credit to Material Design Google -->
+        <svg width="100%" height="8" fill="none">
+            <pattern id="a" width="91" height="8" patternUnits="userSpaceOnUse">
+                <g clip-path="url(#clip0_2426_11367)">
+                    <path d="M114 4c-5.067 4.667-10.133 4.667-15.2 0S88.667-.667 83.6 4 73.467 8.667 68.4 4 58.267-.667 53.2 4 43.067 8.667 38 4 27.867-.667 22.8 4 12.667 8.667 7.6 4-2.533-.667-7.6 4s-10.133 4.667-15.2 0S-32.933-.667-38 4s-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0-10.133-4.667-15.2 0-10.133 4.667-15.2 0" stroke="var(--footer-line-color)" stroke-linecap="square"></path>
+                </g>
+            </pattern>
+            <rect width="100%" height="100%" fill="url(#a)"></rect>
+        </svg>
+
+        <!-- Text Container -->
+        <div class="p-3 mt-5" style="text-align:left;overflow:hidden;">
+            <!-- Text Rows -->
+            <div class="row">
+                <div class="col-6" style="text-align:left;">
+                    <h6 class="mb-3">
+                        <i class="material-symbols-outlined" style="font-size:40px;">spa</i>
+                    </h6>
+                    <p style="text-align:left;font-size:16px;">
+                        On Khan Academy, LeaferStudios is a computer programmer who is especially interested in web design and development.
+                    </p>
+                </div>
+
+                <div class="col-3" style="text-align:left;">
+                    <h6 class="mb-3" style="font-size:14px;color:var(--mn-txt-color);">
+                        Main Links
+                    </h6>
+                    <p>
+
+                        <a href="javascript:(changePage(1));" class="ft-link"><i class="material-symbols-outlined">spa</i> Home</a>
+                    </p>
+                    <p>
+                        <a href="javascript:(changePage(2));" class="ft-link"> <i class="material-symbols-outlined">account_circle</i> About</a>
+                    </p>
+                    <p>
+                        <a href="javascript:(changePage(3));" class="ft-link"> <i class="material-symbols-outlined">mark_email_unread</i> Subscribe</a>
+                    </p>
+                    <p>
+                        <a href="javascript:(changePage(4));" class="ft-link"><i class="material-symbols-outlined">code</i> Programs</a>
+                    </p>
+
+                    <p>
+                        <a href="javascript:(changePage(5));" class="ft-link"><i class="material-symbols-outlined">pages</i> Blog</a>
+                    </p>
+                </div>
+                <div class="col-3">
+                    <h6 class="mb-3" style="font-size:14px;color:var(--mn-txt-color);">
+                        Other Websites
+                    </h6>
+
+                    <p>
+                        <a href="https://www.khanacademy.org/computer-programming/old/6700325706350592?width=600px" target="_blank" class="ft-link"><i class="material-symbols-outlined">bookmark</i> Subpage v1</a>
+                    </p>
+                    <p>
+                        <a href="https://www.khanacademy.org/computer-programming/old-20/5924166681542656" target="_blank" class="ft-link"><i class="material-symbols-outlined">bookmark</i> Subpage v2</a>
+                    </p>
+                    <p>
+                        <a href="javascript:alert('It is against the KACP guidelines to post links to 3rd party websites like this... Sorry!');"class="ft-link"><i class="material-symbols-outlined">open_in_new</i> Netlify</a>
+                    </p>
+                    <p>
+                        <a href="javascript:alert('It is against the KACP guidelines to post links to 3rd party websites like this... Sorry!');"class="ft-link"><i class="material-symbols-outlined">open_in_new</i> Github</a>
+                    </p>
+                </div>
+
+
+                <div class="mt-4 d-flex align-items-center">
+                    <p style="margin-right: 15px;width:100%;"><sub style="font-size:24px;">©</sub> 2023
+                        by <a href="https://www.khanacademy.org/profile/kaid_553656479258879622339276/" class="ft-link" target="_blank">LeaferStudios</a>
+
+
+
+                        <a href="javascript:window.scroll(0,0);" class="badge ft-link" style="color:var(--nv-txt-color);float:right;">Back to Top <i class="material-symbols-outlined" style="font-size:16px;transform:scale(1.5)translateY(-0.6px)translateX(1px);">arrow_upward</i></a>
+                        <a href="javascript:alert('Coming soon!');" class="badge ft-link" style="color:var(--nv-txt-color);float:right;">Feedback</a>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <!-- Main App JavaScript -->
+    <script type="application/javascript">
+        var currScene = 0;
+        var dm = false;
+        var blog = document.getElementById("blog");
+
+        var callsHistory = [];
+
+        // the callsHistory variable tells us when to stop voice output
+        // the dm variable is a true/false 
+        // (it stands for dev mode and disables certain stuff like transitions)
+        // the blog is a helper variable
+        // currScene is a helper variable (dev mode)
+        /**
+         * Blog
+         * by @LeaferStudios
+         **/
+        var app = {
+            sound: false,
+            callsHistory: [],
+            speak: function(e, s, p) {
+                if (!1 === p || void 0 === p) {
+                    if (callsHistory.push("$"), 1 !== callsHistory.length) return !1;
+                    pv = new SpeechSynthesisUtterance(e), pv.voice = speechSynthesis.getVoices()[s], void 0 !== pv.pitch && (pv.pitch = 1), void 0 !== pv.rate && (pv.rate = 1.75), speechSynthesis.speak(pv)
+                } else pv = new SpeechSynthesisUtterance(e), pv.voice = speechSynthesis.getVoices()[s], void 0 !== pv.pitch && (pv.pitch = 1), void 0 !== pv.rate && (pv.rate = 1.75), speechSynthesis.speak(pv)
+            },
+            //{
+            styles: `
+    #blog {
+        
+            background-color: rgb(237, 237, 237);
+		    
+		    height: 600px;
+		    width: 600px;
+		    
+		    overflow-y:scroll;
+		    overflow-x: hidden;
+		    position: relative;
+		    
+    }
+    #hypershow {
+        background:#000;
+        margin: 0px !important;
+        padding: 0px !important;
+    }
+    #blog-pane-1 {
+        border-radius: 0px;
+        border-radius:0px 0px 0px 0px !important;
+        
+        
+        
+        transition: all 0.2s;
+        margin: 0px !important;
+        padding: 0px !important;
+        height: 40px;
+    }
+    #blog-pane-2 {
+        border-radius: 0px;
+        border-radius:0px 0px 0px 0px !important;
+        transition: all 0.2s;
+        margin: 0px !important;
+        padding: 0px !important;
+        height: 40px;
+    }
+    .nav-link.active {
+        background-color: var(--mn-active-bg-color) !important;
+			color: var(--mn-active-content-color) !important;
+			
+			transition: all 0.2s;
+    }
+    .nav-link {
+        background-color:var(--mn-bg-color-a) !important;
+        color: var(--mn-txt-color) !important;
+			
+
+        transition: all 0.2s;
+    }
+    #captions {
+        position: absolute;
+        bottom: 125px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 400px;
+        margin: 0;
+    }
+    #captions h6#caption-text {
+        background-color: rgba(0, 0, 0, 0.05);
+        padding: 0 15px;
+        color: #FFF;
+        text-align:center;
+                text-shadow: 2px 1px 1px rgba(0, 0, 0, 1), -1px -1px 1px rgba(0, 0, 0, 1), 0px -1px 1px rgba(0, 0, 0, 1), -1px 2px 1px rgba(0, 0, 0, 1), 2px -1px 1px rgba(0, 0, 0, 1);
+        font-family: 'Passion One', arial;
+        font-weight:400;
+        letter-spacing: 2px;
+        font-size: 42px !important;
+        width: 100%;
+    }
+    @keyframes grow {
+        0% {
+            transform:scale(0.90);
+        }
+        100%{
+            transform:scale(1);
+        }
+    }
+    
+    #displayVideos {
+        background-color:gray;
+        margin-top: 0px;
+        height: 560px;
+        width: 500px;
+        position: relative;
+    }
+    #stats {
+        position: absolute;right:0;
+        top:40px;bottom:0;
+        left: 500px;
+        background: var(--mn-bg-color);
+        padding: 25px;
+    }
+    #stats button {
+        background-color: var(--mn-active-bg-color);
+        box-shadow: none;
+        margin-bottom: 15px;
+        transition: all 0.3s;
+        color: var(--mn-txt-color);
+    }
+    #stats button:hover {
+        background-color: var(--mn-active-bg-color-hover);
+    }
+    #stats button:active i.material-symbols-outlined {
+        margin-top:-1px;
+        
+    }
+    #avatar {
+        border-radius: 4px;
+        border: 2px solid var(--ft-link-color);
+    }
+    #timeloopBar {
+        background-color:rgba(0, 0, 0, 0.4);
+        position:absolute;
+        width:100%;
+        left:0;
+        right: 0;
+        bottom:0px;
+    }
+    #timeloopBar div {
+        background-color:rgb(240, 0, 0);
+    }
+    
+    #title {
+        font-family: "Roboto", arial;
+        font-weight: 500;
+        color: #FFF;
+        position:absolute;
+        bottom:15px;
+        font-size: 30px;
+    }
+    `,
+            //}
+            content: [
+
+                {
+                    title: "Tester",
+                    timeframe: 3000,
+                    bg: "linear-gradient(30deg, rgb(6, 53, 161), rgb(52, 199, 194))",
+                    txt: [
+                        ["Hi!", 1300],
+                        ["Hello!", 1301],
+                        ["This is LS", 1601],
+
+                        ["This super duper mega cool!", 1801],
+                    ],
+                },
+
+
+                {
+                    title: "Introduction",
+                    timeframe: 5000,
+                    bg: "linear-gradient(30deg, rgb(79, 163, 5), rgb(52, 199, 194))",
+                    txt: [
+                        ["Hello!", 800],
+                        ["", 1000],
+                        ["I'm LeaferStudios", 1000],
+                        ["A programmer here", 1000],
+                        ["on Khan Academy.", 1000],
+                        ["I've created these subtitles so that you can read me.", 5000],
+                        ["Please keep in mind that", 3000],
+                        ["This is just filler text", 3000],
+                        ["And real content will be", 3000],
+                        ["Added soon!", 1000],
+                        ["Until then,", 1000],
+                        ["See you later!", 1500],
+                        ["Have a nice day!", 1500],
+                        ["and be sure to Subscribe to be notified when this is finished!", 3000],
+                    ],
+                },
+
+                {
+                    title: "Second Video",
+                    timeframe: 3000,
+                    bg: "linear-gradient(30deg, rgb(161, 6, 138), rgb(52, 199, 194))",
+                    txt: [
+                        ["Testing", 2000],
+                        ["Hello", 1200],
+                        ["I'm LS", 1001],
+
+                        ["This is cool!", 1801],
+                    ],
+                },
+            ],
+
+            articles: [
+                {
+                    title: "Happy New Year Everybody!",
+                    content: "<p style='color:#000;'>On Jan. 1, I released <a href='https://www.khanacademy.org/computer-programming/phase-i-end-announcement/5368366275674112' target='_blank'>Phase I End Announcement</a> which means everything I release from now on will be classified Phase II. It's time for my bigger, better, and more interactive programs to flood the Hot List!!!</p>",
+                    date: "Fri. Jan. 5, 2024",
+                    type: "Article",
+                },
+            ],
+
+            units: [{
+                video: 1,
+                type: "",
+                code: `
+           <div>
+           
+            <ul class="nav nav-justified nav-pills" id="hypershow" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button
+      class="nav-link active"
+      id="blog-pane-1"
+      data-mdb-toggle="pill"
+      data-mdb-target="#posts"
+      type="button"
+      role="tab"
+      aria-controls="hyperlink-videos"
+      aria-selected="true"
+      style="width:100%;"
+    >
+      Videos
+    </button>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button
+      class="nav-link"
+      id="blog-pane-2"
+      data-mdb-toggle="pill"
+      data-mdb-target="#videos"
+      type="button"
+      role="tab"
+      aria-controls="hyperlink-posts"
+      aria-selected="false"
+      style="width:100%;"
+    >
+      Posts
+    </button>
+  </li>
+</ul>
+<div class="tab-content" id="hypershow-tabs">
+  <div
+    class="tab-pane fade show active"
+    id="posts"
+    role="tabpanel"
+    aria-labelledby="hyperlink-videos-tab2"
+  >
+ 
+    <div id="displayVideos"></div>
+    <div id="stats">
+     
+    <div id="upBtn">
+    </div>
+    <button data-mdb-ripple-duration="250ms" data-mdb-ripple-centered="true" class="btn btn-floating btn-lg btn-success" data-mdb-toggle="tooltip" data-mdb-placement="left" title="Tooltip on left">
+    <i class='material-symbols-outlined'>thumb_up</i>
+    </button>
+    <button data-mdb-ripple-duration="250ms" data-mdb-ripple-centered="true" class="btn btn-floating btn-lg btn-success">
+    <i class='material-symbols-outlined'>thumb_down</i>
+    </button>
+    
+    <button data-mdb-ripple-duration="250ms" data-mdb-ripple-centered="true" class="btn btn-floating btn-lg btn-success">
+    <i class='material-symbols-outlined'>chat</i>
+    </button>
+    
+    <button data-mdb-ripple-duration="250ms" data-mdb-ripple-centered="true" class="btn btn-floating btn-lg btn-success">
+    <i class='material-symbols-outlined'>share</i>
+    </button>
+    
+    <button data-mdb-ripple-duration="250ms" data-mdb-ripple-centered="true" class="btn btn-floating btn-lg btn-success">
+    <i class='material-symbols-outlined'>more_horiz</i>
+    </button>
+    
+    <button data-mdb-ripple-duration="0ms" data-mdb-ripple-centered="true" class="btn btn-floating btn-lg btn-success" id="avatar" style="background-image:url('https://cdn.kastatic.org/third_party/javascript-khansrc/live-editor/build/images/landscapes/mountains-in-hawaii.png');background-size:250%;background-repeat:no-repeat;">
+    </button>
+    
+    
+    <div id="soundBtn"></div>
+   
+    
+    <div id="downBtn"></div>
+    </div>
+  </div>
+  <div
+    class="tab-pane fade"
+    id="videos"
+    role="tabpanel"
+    aria-labelledby="hyperlink-posts-tab2"
+  >
+    <div id="posts-page">
+    </div>
+    <div id="posts-content">
+    </div>
+  </div>
+</div>
+           </div>
+           `,
+                backVideo: function() {
+                    this.video--;
+                },
+                nextVideo: function() {
+                    this.video++;
+                },
+                run: function() {
+                    blog.innerHTML += this.code;
+
+                    for (var i = 0; i < app.articles.length; i++) {
+                        var at = document.createElement("a");
+                        switch (app.articles[i].type) {
+                            case "Tutorial":
+                                at.innerHTML = `
+                        <a style="text-decoration:none;" class='tutorial-link'>
+                        <div class="article-at" style='background-color:#E3F2FD;border-color:#42A5F5;'>
+                        <h3>${app.articles[i].title}</h3>
+                        <p style='color:#000;'>${app.articles[i].content}</p>
+                        </div>
+                        </a>
+                        `;
+                                break;
+                            case "Article":
+                                at.innerHTML = `
+                        <a style="text-decoration:none;" class='article-link'>
+                        <div class="article-at">
+                        <h3>${app.articles[i].title}</h3>
+                        <p>posted ${app.articles[i].date}</p>
+                        
+                        <p>${app.articles[i].content}</p>
+                        </div>
+                        </a>
+                        `;
+                                break;
+                        }
+
+
+
+                        document.getElementById("posts-page").innerHTML += at.innerHTML;
+                    }
+
+
+
+                    var timer = 0;
+                    var video = this.video;
+                    var textZin = -1;
+                    //for (var z = 0; z < app.times.length; z++){
+
+                    var counter = 0;
+
+                    document.getElementById("upBtn").addEventListener("click", function() {
+                        timer = 0;
+                        textZin = -1;
+                        video--;
+                        setTimeout(myFunction, counter);
+                    });
+
+                    document.getElementById("downBtn").addEventListener("click", function() {
+                        timer = 0;
+                        textZin = -1;
+                        counter = 0;
+                        video++;
+                        setTimeout(myFunction, counter);
+                    });
+                    document.getElementById("soundBtn").innerHTML = `<button data-mdb-ripple-duration="250ms" data-mdb-ripple-centered="true" class="btn btn-floating btn-lg btn-success" style="position:absolute;">
+    <i class='material-symbols-outlined'>${app.sound?"volume_up":"volume_off"}</i>
+    </button>`;
+                    document.getElementById("soundBtn").addEventListener("click", function() {
+                        if (app.sound === false) {
+                            app.sound = true;
+                        } else {
+                            app.sound = false;
+                        }
+                        document.getElementById("soundBtn").innerHTML = `<button data-mdb-ripple-duration="250ms" data-mdb-ripple-centered="true" class="btn btn-floating btn-lg btn-success" style="position:absolute;">
+    <i class='material-symbols-outlined'>${app.sound?"volume_up":"volume_off"}</i>
+    </button>`;
+                    });
+
+
+                    var myFunction = function() {
+
+                        document.getElementById("upBtn").innerHTML = `<button data-mdb-ripple-duration="250ms" data-mdb-ripple-centered="true" class="btn btn-floating btn-lg btn-success" >
+    <i class='material-symbols-outlined'>arrow_upward</i>
+    </button>`;
+
+                        document.getElementById("downBtn").innerHTML = ` <button data-mdb-ripple-duration="250ms" data-mdb-ripple-centered="true" class="btn btn-floating btn-lg btn-success" style="bottom:0;position:absolute;">
+    <i class='material-symbols-outlined'>arrow_downward</i>
+    </button>`;
+
+
+
+                        timer += app.content[video].timeframe / app.content[video].txt.length;
+                        textZin++;
+                        //	for (var i = 0; i < app.content.length; i++) {
+                        counter = app.content[video].txt[textZin][1];
+
+                        //for (var j = 0; j < app.content[i].txt.length;j++){
+                        document.getElementById("displayVideos").style.backgroundImage = app.content[video].bg;
+                        document.getElementById("displayVideos").innerHTML = `
+                <div style='height:100%;'>
+                
+    
+                <h1 id="title">${video}: ${textZin} ${app.content[video].title}</h1>
+                
+                <div id="captions">
+                <h6 id="caption-text">${app.content[video].txt[textZin][0]}</h6>
+                
+                </div>
+                <div class="progress" id="timeloopBar">
+  <div class="progress-bar" role="progressbar" style="width: ${timer/app.content[video].timeframe*100}%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+                `;
+
+                        document.getElementById("caption-text").style.animation = "0.20s grow forwards";
+                        if (app.callsHistory.length >= 2) {
+
+                        } else {
+                            if (app.sound === true) {
+                                app.speak(app.content[video].txt[textZin][0], 1, true);
+                            } else {
+
+                            }
+                        }
+                        //}
+                        //}
+
+
+                        setTimeout(myFunction, counter);
+                    }
+                    setTimeout(myFunction, counter);
+
+                    //setInterval(function(){
+
+                    //},tr);
+                    //}
+
+                },
+            }, ],
+            nestedSwitchPage: function(index, cls) {
+                for (var i = 0; i < cls.length; i++) {
+                    cls[i].style.display = "none";
+                    window.scroll(0, 0);
+                    cls[i].style.animation = "1s p-in forwards"
+                }
+
+                cls[w].style.display = "block";
+            },
+            run: function() {
+                var blogCSS = document.createElement("style");
+                blogCSS.innerText = this.styles;
+                document.head.appendChild(blogCSS);
+                for (var j = 0; j < this.units.length; j++) {
+                    this.units[j].run();
+                }
+
+            },
+        };
+        app.run();
+
+        var programs = [{
+                name: "Energy Game [HTML]",
+                link: "https://www.khanacademy.org/computer-programming/energy-game-html/6207078986629120?width=600px",
+                thumb: "https://www.khanacademy.org/computer-programming/energy-game-html/6207078986629120/5614878433525760.png",
+                votes: 263,
+            },
+            {
+                name: "Arena.io",
+                link: "https://www.khanacademy.org/computer-programming/arenaio/5523316154515456",
+                thumb: "https://www.khanacademy.org/computer-programming/arenaio/5523316154515456/5611490558033920.png",
+                votes: 173,
+            },
+            {
+                name: "Google Clone",
+                link: "https://www.khanacademy.org/computer-programming/google-clone/6383058550865920",
+                thumb: "https://www.khanacademy.org/computer-programming/google-clone/6383058550865920/6043955395772416.png",
+                votes: 143
+            },
+            {
+                name: "KhanBot LITE v0.9",
+                link: "https://www.khanacademy.org/computer-programming/khanbot-lite-v09/4693131481530368",
+                thumb: "https://www.khanacademy.org/computer-programming/khanbot-lite-v09/4693131481530368/5651366093307904.png",
+                votes: 130
+            },
+            {
+                name: "KhanCrypt 1.0.0",
+                link: "https://www.khanacademy.org/computer-programming/khancrypt-100/6223971025469440",
+                thumb: "https://www.khanacademy.org/computer-programming/khancrypt-100/6223971025469440/6076370320670720.png",
+                votes: 118
+            },
+            {
+                name: "Cool Thing",
+                link: "https://www.khanacademy.org/computer-programming/cool-thing/6363163034206208",
+                thumb: "https://www.khanacademy.org/computer-programming/cool-thing/6363163034206208/6289607967588352.png",
+                votes: 116,
+            },
+            {
+                name: "Forest.io [Alpha]",
+                link: "https://www.khanacademy.org/computer-programming/forestio-alpha/5213888244137984",
+                thumb: "https://www.khanacademy.org/computer-programming/forestio-alpha/5213888244137984/5064776924315648.png",
+                votes: 95
+            },
+            {
+                name: "Ocean",
+                link: "https://www.khanacademy.org/computer-programming/ocean/6481216860536832?width=600px&height=500px",
+                thumb: "https://www.khanacademy.org/computer-programming/ocean/6481216860536832/6132884476739584.png",
+                votes: 92
+            },
+            {
+                name: "Team Aviconazul Entry",
+                link: "https://www.khanacademy.org/computer-programming/team-aviconazul-entry/4968647857487872",
+                thumb: "https://www.khanacademy.org/computer-programming/team-aviconazul-entry/4968647857487872/5227453716840448.png",
+                votes: 86,
+            },
+        ];
+
+        function runP() {
+            for (var i = 0; i < programs.length; i++) {
+                document.getElementById("programs").innerHTML += `
+                
+                
+                <a href=${programs[i].link} target="_blank"  style='margin:0;padding:0px !important;'>
+                <div class="program">
+                
+                
+                
+                <img src=${programs[i].thumb}>
+                <a class="title ft-link" href=${programs[i].link} target="_blank">${programs[i].name}</a>
+                <br>
+                
+                
+                
+                <span>
+                <i class="material-symbols-outlined">thumb_up</i> ${programs[i].votes}
+                </span>
+                </div>
+                </a>
+                `;
+            }
+        };
+        runP();
+
+
+        // Transition Theme
+        function lightMode() {
+            document.body.classList.toggle("lightmode");
+            if (document.getElementById("theme-icon").innerHTML === "light_mode") {
+                document.getElementById("theme-icon").innerHTML = "clear_night";
+            } else {
+                document.getElementById("theme-icon").innerHTML = "light_mode";
+            }
+        }
+        //lightMode();
+
+
+        // Toggle Element Helper Function
+        var toggle_el = function(el, ref) {
+            document.getElementById(el).classList.toggle(ref);
+            document.getElementById("scrim").classList.toggle("on");
+        };
+        //toggle_el('menu', 'on');
+
+
+        // Clock Interval
+        setInterval(function() {
+            var sd = new Date();
+            var hrs = sd.getHours();
+            if (hrs >= 12) {
+                hrs = hrs / 4;
+            }
+            document.getElementById("time").innerHTML = hrs + ":" + sd.getMinutes() + " " + ((hrs >= 12) ? "PM" : "AM");
+            //}, 60000);
+        }, 1000);
+
+        // All nvlinks in page
+        var links = document.getElementsByClassName('nvlink');
+
+        // Page toggle function
+        var changePage = function(index) {
+            for (var i = 0; i < document.getElementsByClassName("scene").length; i++) {
+                document.getElementsByClassName("scene")[i].style.display = "none";
+                if (!dm) {
+                    window.scroll(0, 0);
+                    document.getElementsByClassName("scene")[i].style.animation = "1s sceneAnimation forwards";
+                }
+                links[i].classList.remove('active');
+            }
+            links[index].classList.add('active');
+
+            document.getElementsByClassName("scene")[index].style.display = "block";
+        };
+
+        // Change Page to Home
+        changePage(currScene);
+
+        if (dm === false) {
+            setTimeout(function() {
+                changePage(1);
+            }, 4000);
+            //document.getElementById("logo").style.display="none";
+        } else {
+            changePage(currScene);
+        }
+
+        // Close Alerts (if close button is clicked)
+        var closeAlerts = function() {
+            for (var i = 0; i < document.getElementsByClassName("alert").length; i++) {
+                document.getElementsByClassName("alert")[i].style.display = "none";
+            }
+        }
+
+        /**
+         * Image for Thumbnail by LeaferStudios
+         **/ 
+        document.body.addEventListener("keydown", function(e) {
+            if (e.code === "Escape") {
+                document.body.innerHTML = `
+                          <div class='center' style='overflow:hidden;height:600px;width:100%;background-image:url("https://upload.wikimedia.org/wikipedia/commons/6/69/Savai%27i_coastal_scenery_palm_trees_%26_sea%2C_Falealupo_village%2C_Samoa_1.JPG");background-size:807%;background-position:bottom;text-align:center;'>
+                              <h1 style="padding-top:183px;font-size:105px;margin-bottom:70px;letter-spacing:2px;color:rgb(90, 242, 87);font-family:'Roboto','Roboto',arial;">Leafer<br>Studios</h1>
+                              <p style="position: relative;top:-392px;height:0px;color:rgb(255, 255, 255);letter-spacing:2px;font-size:36px;">Subscribe to</p>
+  <p style="position: relative;top:-496px;left:5px;height:0px;color:rgb(255, 230, 64);font-family:'Roboto Text',arial;letter-spacing:4px;font-size:30px;font-weight:500;">190+ Votes!!!</p>
+                              <p style="position: relative;top:-85px;height:0px;color:rgb(255, 255, 255);letter-spacing:2px;font-size:30px;font-family:'Roboto';">Official KA Website<br>NEW UPDATE!!!</p>
+                          </div>
+                      `;
+
+            }
+
+            if (e.code === "Enter") {
+                e.preventDefault();
+            }
+        });
+    </script>
+    <script></script>
+
+    <!-- The Thumbnail Script 2.0.0 10/24/2023 by Bluebird@kaid_157624541333313939750668 -->
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script type>
+      var r = 600;
+      var s = document.documentElement.clientWidth;
+      window.parent.html2canvas = e => {
+        try {
+          html2canvas(document.body, {
+            width: s,
+            height: s,
+            useCORS: true,
+          }).then(e => {
+            var c = document.createElement("canvas");
+            c.width = r;
+            c.height = r;
+            c.getContext('2d').drawImage(e, 0, 0, e.width, e.height, 0, 0, r, r);
+            window.top.postMessage(c.toDataURL(), "*");
+          }).catch(e => {
+            alert("Thumbnail Script Error: " + e);
+          });
+        } catch {
+          window.top.postMessage(document.createElement("canvas").toDataURL(), "*");
+        }
+      };
+    </script>
+</body>
+
+</html>
+<!-- 1.6k+ Lines of code! -->
